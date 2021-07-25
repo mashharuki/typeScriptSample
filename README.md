@@ -1,0 +1,2 @@
+# typeScriptSample
+TypeScriptを学ぶためのリポジトリです。
