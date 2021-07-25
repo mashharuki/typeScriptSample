@@ -35,3 +35,18 @@ let reserve: Reserve = (fromOrDestination: Date | string, to: toOrDestination Da
     }
 }
 
+// call関数を実装する。
+function call<T extends [unknown, string, ...unknown[], R> (
+    f: (...args: T) => R,
+    ...args: T
+): R {
+    return f(...args)
+}
+
+// fill関数
+function fill (length: number, value: string): string[] {
+    return Array.from({length}, => value);
+}
+
+// call関数を呼び出す。
+call (fill, 10, 'a');
