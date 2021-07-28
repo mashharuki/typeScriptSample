@@ -36,3 +36,6 @@ let Shoe = {
         }
     }
 }
+
+// ファクトリーを使用する
+Shoe.create('boot');
