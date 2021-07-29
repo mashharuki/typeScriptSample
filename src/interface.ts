@@ -7,6 +7,13 @@ type Shoe = {
     purpose: string
 }
 
+// 型ShoeCreatorを定義
+type ShoeCreator = {
+    create(type: 'balletFlat'): BalletFlat
+    create(type: 'boot'): Boot
+    create(type: 'sneaker'): Sneaker
+}
+
 // 具象クラス
 class BalletFlat implements Shoe {
     purpose = 'dancing';
@@ -23,19 +30,21 @@ class Sneaker implements Shoe {
 }
 
 // Shoeのファクトリー
-let Shoe = {
+let Shoe : ShoeCreator = {
     create(type: 'balletFlat' | 'boot' | 'sneaker'): Shoe {
         // typeの値によって変化
         switch (type) {
             case 'balletFlat': 
-                return new BalletFlat
+                return new BalletFlat()
             case 'boot': 
-                return new Boot
+                return new Boot()
             case 'sneaker':
-                return new Sneaker
+                return new Sneaker()
         }
     }
 }
 
 // ファクトリーを使用する
 Shoe.create('boot');
+Shoe.create('sneaker');
+Shoe.create('balletFlat');
